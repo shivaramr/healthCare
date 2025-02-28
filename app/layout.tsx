@@ -11,11 +11,6 @@ const fontSans = Plus_Jakarta_Sans({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
-
 export const metadata: Metadata = {
   title: "CarePulse",
   description: "A healthcare management system",
