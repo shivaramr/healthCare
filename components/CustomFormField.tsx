@@ -94,7 +94,7 @@ import { Checkbox } from "./ui/checkbox";
               <DatePicker 
               selected={field.value} 
               onChange={(date) => field.onChange(date)} 
-              dateFormat={dateFormat ?? 'MM/dd/YYYY'}
+              dateFormat={dateFormat ?? 'MM/dd/yyyy'}
 showTimeSelect={showTimeSelect??false}
 timeInputLabel="Time:"
 wrapperClassName="date-picker"
