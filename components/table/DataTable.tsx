@@ -1,39 +1,35 @@
-"use client"
+"use client";
 
 import {
   ColumnDef,
   flexRender,
+  useReactTable,
   getCoreRowModel,
   getPaginationRowModel,
-  useReactTable,
-} from "@tanstack/react-table"
-
+} from "@tanstack/react-table";
 import {
   Table,
+  TableRow,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
-  TableRow,
-} from "@/components/ui/table"
-import { Button } from "../ui/button"
-import Image from "next/image"
+} from "@/components/ui/table";
+import Image from "next/image";
+import { Button } from "../ui/button";
 
 interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[]
-  data: TData[]
+  columns: ColumnDef<TData, TValue>[];
+  data: TData[];
 }
 
-export function DataTable<TData, TValue>({
-  columns,
-  data,
-}: DataTableProps<TData, TValue>) {
+export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-  })
+  });
 
   return (
     <div className="data-table">
@@ -46,12 +42,9 @@ export function DataTable<TData, TValue>({
                   <TableHead key={header.id}>
                     {header.isPlaceholder
                       ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
+                      : flexRender(header.column.columnDef.header, header.getContext())}
                   </TableHead>
-                )
+                );
               })}
             </TableRow>
           ))}
@@ -88,12 +81,7 @@ export function DataTable<TData, TValue>({
           disabled={!table.getCanPreviousPage()}
           className="shad-gray-btn"
         >
-          <Image 
-          src='/assets/icons/arrow.svg'
-          width={24}
-          height={24}
-          alt="arrow"
-          />
+          <Image src="/assets/icons/arrow.svg" width={24} height={24} alt="arrow" />
         </Button>
         <Button
           variant="outline"
@@ -102,15 +90,15 @@ export function DataTable<TData, TValue>({
           disabled={!table.getCanNextPage()}
           className="shad-gray-btn"
         >
-          <Image 
-          src='/assets/icons/arrow.svg'
-          width={24}
-          height={24}
-          alt="arrow"
-          className="rotate-180"
+          <Image
+            src="/assets/icons/arrow.svg"
+            width={24}
+            height={24}
+            alt="arrow"
+            className="rotate-180"
           />
         </Button>
       </div>
     </div>
-  )
+  );
 }
