@@ -15,6 +15,8 @@ import {
 import { decryptKey, encryptKey } from "@/lib/utils";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 
+const passkeyArray = [0, 1, 2, 3, 4, 5];
+
 const PasskeyModal = () => {
   const router = useRouter();
   const path = usePathname();
@@ -78,12 +80,9 @@ const PasskeyModal = () => {
         <div>
           <InputOTP maxLength={6} value={passkey} onChange={(value) => setPasskey(value)}>
             <InputOTPGroup className="shad-otp">
-              <InputOTPSlot className="shad-otp-slot" index={0} />
-              <InputOTPSlot className="shad-otp-slot" index={1} />
-              <InputOTPSlot className="shad-otp-slot" index={2} />
-              <InputOTPSlot className="shad-otp-slot" index={3} />
-              <InputOTPSlot className="shad-otp-slot" index={4} />
-              <InputOTPSlot className="shad-otp-slot" index={5} />
+              {passkeyArray.map((item) => (
+                <InputOTPSlot key={item} className="shad-otp-slot" index={item} />
+              ))}
             </InputOTPGroup>
           </InputOTP>
 
