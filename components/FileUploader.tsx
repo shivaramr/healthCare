@@ -7,13 +7,16 @@ import { convertFileToUrl } from "@/lib/utils";
 
 type FileUploaderProps = {
   files: File[] | undefined;
-  onChange: (files: File[]) => void;
+  onChange?: (files: File[]) => void;
 };
 
 const FileUploader = ({ files, onChange }: FileUploaderProps) => {
-  const onDrop = useCallback((acceptedFiles: File[]) => {
-    onChange(acceptedFiles);
-  }, []);
+  const onDrop = useCallback(
+    (acceptedFiles: File[]) => {
+      if (onChange) onChange(acceptedFiles);
+    },
+    [onChange]
+  );
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
   return (
