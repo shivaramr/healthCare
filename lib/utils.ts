@@ -41,25 +41,13 @@ export const formatDateTime = (dateString: Date | string) => {
     hour12: true, // use 12-hour clock (true) or 24-hour clock (false)
   };
 
-  const formattedDateTime: string = new Date(dateString).toLocaleString(
-    "en-US",
-    dateTimeOptions
-  );
+  const formattedDateTime: string = new Date(dateString).toLocaleString("en-US", dateTimeOptions);
 
-  const formattedDateDay: string = new Date(dateString).toLocaleString(
-    "en-US",
-    dateDayOptions
-  );
+  const formattedDateDay: string = new Date(dateString).toLocaleString("en-US", dateDayOptions);
 
-  const formattedDate: string = new Date(dateString).toLocaleString(
-    "en-US",
-    dateOptions
-  );
+  const formattedDate: string = new Date(dateString).toLocaleString("en-US", dateOptions);
 
-  const formattedTime: string = new Date(dateString).toLocaleString(
-    "en-US",
-    timeOptions
-  );
+  const formattedTime: string = new Date(dateString).toLocaleString("en-US", timeOptions);
 
   return {
     dateTime: formattedDateTime,
