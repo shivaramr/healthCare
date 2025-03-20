@@ -1,6 +1,6 @@
 "use client";
-/* eslint-disable @typescript-eslint/no-explicit-any */
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
 import { Textarea } from "./ui/textarea";
 import { Checkbox } from "./ui/checkbox";
